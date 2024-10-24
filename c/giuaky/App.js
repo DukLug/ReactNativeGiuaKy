@@ -1,7 +1,6 @@
 import {useState} from 'react';
 import { Text, SafeAreaView, StyleSheet, View, Image , TextInput, TouchableOpacity, Item, FlatList} from 'react-native';
 
-// You can import supported modules from npm
 
 const doctor = [
   {
@@ -90,7 +89,7 @@ const cartegoryItem = ({data}) => {
 }
 
 export default function App() {
-  const [searchQuery, setSearchQuery] = useState('hi')
+  const [searchQuery, setSearchQuery] = useState('')
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -101,14 +100,18 @@ export default function App() {
             <Text style ={{fontSize: 18, color: 'white'}}>Dani Martines</Text>
           </View>
         </View>
-        
-        <TextInput
-          style ={{marginVertical: 20, backgroundColor: 'white', height: 50, borderRadius: 10, padding: 10, fontSize: 18, color:'black'}}
+        <View style ={{marginVertical: 30, flexDirection: 'row', backgroundColor: 'white', alignItems: 'center',borderRadius: 10, paddingHorizontal: 10}}>
+          <TextInput
+          style ={{ backgroundColor: 'white', height: 50,  padding: 10, fontSize: 18, color:'black', width: '90%'}}
           value = {searchQuery}
           onChangeText = {setSearchQuery}
 
           placeholder = 'Search doctor'
-        />       
+         
+        />
+        <Image style={{backgroundColor: 'white', height: 40, width: 40, resizeMode: 'strech'}} source={require('./assets/search.png') }/>     
+        </View>
+          
       </View>
       <View style = {styles.center}>
         <View style = {styles.categories}>
@@ -123,11 +126,11 @@ export default function App() {
             </View>
             <View style={styles.catOption}>
               <Image souce={cartegoryItem.image}/>
-              <Text>{category[0].name}</Text>
+              <Text>{category[1].name}</Text>
             </View>
             <View style={styles.catOption}>
               <Image souce={cartegoryItem.image}/>
-              <Text>{category[0].name}</Text>
+              <Text>{category[2].name}</Text>
             </View>
             <View style={styles.catOption}>
               <Image souce={cartegoryItem.image}/>
